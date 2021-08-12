@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   deleteTodo,
   getAllTodos,
-  postTodo,
+  postTodo, putNewTodo,
   putTodo,
 } from './service/todo-api-service'
 import { nextStatus } from './service/todo-service'
@@ -15,6 +15,8 @@ import {
 import Homepage from './pages/Homepage'
 import DetailsPage from './pages/DetailsPage'
 import BoardPage from './pages/BoardPage'
+import EditPage from "./pages/EditPage";
+
 
 export default function App() {
   const [todos, setTodos] = useState([])
@@ -45,6 +47,16 @@ export default function App() {
       .then(todos => setTodos(todos))
       .catch(error => console.error(error))
 
+  const changeTodo = todo => {
+    putNewTodo(todo)
+        .then(todo => console.log(todo))
+        .then(()=> getAllTodos())
+        .then(todos=>setTodos(todos))
+        .catch(err => console.error(err))
+  }
+
+
+
   return (
     <Router>
       <Switch>
@@ -63,7 +75,9 @@ export default function App() {
             onDelete={removeTodo}
           />
         </Route>
-        <Route path="/edit/:id"></Route>
+        <Route path="/edit/:id">
+          <EditPage changeTodo={changeTodo}/>
+        </Route>
         <Route path="/details/:id">
           <DetailsPage />
         </Route>

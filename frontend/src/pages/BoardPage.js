@@ -27,8 +27,8 @@ export default function BoardPage({ todos, onAdvance, onDelete }) {
       <BoardStyled
         title={title}
         todos={filteredTodos}
-        onAdvance={status !== 'DONE' && onAdvance}
-        onDelete={status === 'DONE' && onDelete}
+        onAdvance={status !== 'DONE' ? onAdvance : undefined}
+        onDelete={status === 'DONE' ? onDelete : undefined}
       />
     </PageLayout>
   )

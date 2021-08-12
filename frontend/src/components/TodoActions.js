@@ -12,6 +12,7 @@ export default function TodoActions({ todo, onAdvance, onDelete }) {
   return (
     <Wrapper>
       <Link to={`/details/${todo.id}`}>Details</Link>
+      <Link to={`/edit/${todo.id}`}>Edit</Link>
       {onAdvance && (
         <ButtonComp adv onClick={() => onAdvance(todo)}>
           Advance

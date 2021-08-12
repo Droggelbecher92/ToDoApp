@@ -9,3 +9,5 @@ export const postTodo = description =>
 export const putTodo = todo => axios.put(`/api/todo/${todo.id}`, todo)
 
 export const deleteTodo = id => axios.delete(`/api/todo/${id}`)
+
+export const putNewTodo = todo => axios.put(`/api/todo/${todo.id}/update`,todo)
