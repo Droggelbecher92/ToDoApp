@@ -20,3 +20,11 @@ const statusTitle = {
 }
 
 export const statusToTitle = status => statusTitle[status]
+
+const statusURL = {
+  OPEN : 'todo',
+  IN_PROGRESS: 'doing',
+  DONE: 'done',
+}
+
+export const statusToURL = status => statusURL[status]

@@ -49,7 +49,6 @@ export default function App() {
 
   const changeTodo = todo => {
     putNewTodo(todo)
-        .then(todo => console.log(todo))
         .then(()=> getAllTodos())
         .then(todos=>setTodos(todos))
         .catch(err => console.error(err))
